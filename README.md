@@ -28,11 +28,7 @@ dependencies {
 
 Create a custom event handler by implementing the `EventrixHandler` interface.
 
-```
-kotlin
-
-
-复制编辑
+```kotlin
 class FirebaseEventrixHandler : EventrixHandler {
     override fun process(eventName: String, params: Map<String, Any>?): Boolean {
         // Event processing logic
@@ -51,7 +47,6 @@ class FirebaseEventrixHandler : EventrixHandler {
 Interceptors modify or log event data before it reaches the event handlers.
 
 ```kotlin
-
 class LoggingEventrixInterceptor : EventrixInterceptor {
     override fun intercept(eventName: String, params: Map<String, Any>?, next: (String, Map<String, Any>?) -> Boolean): Boolean {
         println("Logging event: $eventName with params: $params")
@@ -65,7 +60,6 @@ class LoggingEventrixInterceptor : EventrixInterceptor {
 In `Eventrix`, register event handlers and interceptors.
 
 ```kotlin
-
 val eventrix = Eventrix()
 
 // Register handler
@@ -83,7 +77,6 @@ eventrix.trackEvent("user_signup", mapOf("method" to "Google"))
 Track events using the `trackEvent` method.
 
 ```kotlin
-
 eventrix.trackEvent("purchase", mapOf("item" to "Laptop", "price" to 999))
 ```
 
